@@ -1,4 +1,4 @@
-# Introduction
+# SinglePassword
 
 Imagine a Password Vault where you don't have to save your passwords.
 
@@ -7,26 +7,30 @@ This is far more secure and reliable as you don't  save password in a single pla
 
 # How it works
 
-Find yourself a single password which you won't ever forget. We'll call it the super password.
+### 1. The Super Password
 
-When we're given your super password and the site you want to create the password for, we combine those data and create an encrypted phrase.
+Find yourself a single password which you won't ever forget. We'll call it The Super Password.
 
-Then we make that phrase 'less gibberish' making it easier for you to remember that in case you have to enter it regularly.
+### 2. Sub Password Generation
 
-This 'less giberish' encrypted phrase is your generated password
+We generate sub passwords for each of your logins from the super password
+
+### 3. Use Sub Passwords
+
+Use Sub passwords for your accounts. If you want to see them again, generate the exact same Password using the same Super Password
 
 # Why should you trust us
 
-There's no account creation and we don't ask any personal information from you. 
+- You are 100% Anonymous
 
-Even if we were bad people, there's literally nothing we can do to harm you as you're 100% annonymous.
+    - We do not have any form of account creation and we do not ask any personal data from you
 
-# 100% Transparent
+- Secure and Strong Passwords
 
-Single password is 100% Open Source. If you have any doubts about us you can check it for yourself!
+    - We use the strongest and most robust encryption standard that is commercially available today
 
-# Furthur improvements
+- We are Open Source
 
-We will continously try to be better. And you're always welcome to help us improve.S
+    - SinglePassword™ is 100% Open Source. If you have any doubts about us you can check it for yourself!
 
 
