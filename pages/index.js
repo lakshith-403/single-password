@@ -17,7 +17,7 @@ export default function Home() {
     .then(response => response.json())
     .then(data => {
       setGeneratedPassword(data.password);
-      copy(generatedPassword);
+      copy(data.password);
       alert("Succesfully Copied to the Clipboard");
     });
   }
