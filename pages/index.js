@@ -147,10 +147,12 @@ export default function Home() {
             <div className="container px-6 py-8 mx-auto text-center">
               <button
                   className="px-6 py-2 mt-6 text-sm font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 md:mx-0 md:w-auto focus:outline-none">
-                  <div className='flex flex-row justify-between'>
-                    <Icon icon="bi:github" color="white" width="30" height="30" />
-                    <h1 className="mx-5 text-xl font-semibold text-gray-800 dark:text-white">Source Code on Github</h1>
-                  </div>
+                  <a href='https://github.com/lakshith-403/single-password'>
+                    <div className='flex flex-row justify-between'>
+                      <Icon icon="bi:github" color="white" width="30" height="30" />
+                      <h1 className="mx-5 text-xl font-semibold text-gray-800 dark:text-white">Source Code on Github</h1>
+                    </div>
+                  </a>
                   
               </button>
         </div>
@@ -179,15 +181,15 @@ export default function Home() {
 
             <div className="flex flex-col items-center justify-between mt-6 md:flex-row">
                 <div>
-                    <a href="#" className="text-xl font-bold text-gray-800 dark:text-white hover:text-gray-700 dark:hover:text-gray-300">DevCreara</a>
+                    <a href="https://www.devcreara.com" className="text-xl font-bold text-gray-800 dark:text-white hover:text-gray-700 dark:hover:text-gray-300">DevCreara</a>
                 </div>
 
                 <div className="flex mt-4 md:m-0">
                     <div className="-mx-4">
-                        <a href="#" className="px-4 text-sm font-medium text-gray-800 dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 hover:underline">About</a>
-                        <a href="#" className="px-4 text-sm font-medium text-gray-800 dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 hover:underline">Blog</a>
-                        <a href="#" className="px-4 text-sm font-medium text-gray-800 dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 hover:underline">News</a>
-                        <a href="#" className="px-4 text-sm font-medium text-gray-800 dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 hover:underline">Contact</a>
+                        <a href="https://www.devcreara.com" className="px-4 text-sm font-medium text-gray-800 dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 hover:underline">About</a>
+                        <a href="https://www.devcreara.com" className="px-4 text-sm font-medium text-gray-800 dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 hover:underline">Blog</a>
+                        <a href="https://www.devcreara.com" className="px-4 text-sm font-medium text-gray-800 dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 hover:underline">News</a>
+                        <a href="https://www.devcreara.com" className="px-4 text-sm font-medium text-gray-800 dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 hover:underline">Contact</a>
                     </div>
                 </div>
             </div>
