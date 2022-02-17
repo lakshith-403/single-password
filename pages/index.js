@@ -4,6 +4,8 @@ import styles from '../styles/Home.module.css'
 
 import { Icon } from '@iconify/react';
 
+import copy from "copy-to-clipboard";  
+
 export default function Home() {
 
   const [superPassword,setSuperPassword] = useState('');
@@ -15,7 +17,8 @@ export default function Home() {
     .then(response => response.json())
     .then(data => {
       setGeneratedPassword(data.password);
-      console.log(data.password);
+      copy(generatedPassword);
+      alert("Succesfully Copied to the Clipboard");
     });
   }
   
@@ -33,7 +36,7 @@ export default function Home() {
         </div>
     </nav>
 
-    <div className="container px-6 py-16 mx-auto text-center bg-gray-900">
+    <div className="w-full px-6 py-16 mx-auto text-center bg-gray-900">
       <div className="max-w-lg mx-auto">
         <h1 className="text-3xl font-bold text-gray-800 dark:text-white md:text-4xl">Use a Single Super Password across all Web</h1>
         <p className="mt-6 text-gray-500 dark:text-gray-300">Remeber a Single Password and generate different Passwords from it to use securely across the Web</p>
@@ -68,7 +71,7 @@ export default function Home() {
           <div className="flex justify-center mt-6">
               <button className="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
                 onClick={generatePassword}
-              >Generate</button>
+              >Generate and Copy</button>
           </div>
           
       </section>
@@ -197,17 +200,3 @@ export default function Home() {
     </div>
   )
 }
-
-
-/* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
-import { Popover, Transition } from '@headlessui/react'
-import { MenuIcon, XIcon } from '@heroicons/react/outline'
-import Link from 'next/link';
-
-const navigation = [
-  { name: 'Product', href: '#' },
-  { name: 'Features', href: '#' },
-  { name: 'Marketplace', href: '#' },
-  { name: 'Company', href: '#' },
-]
