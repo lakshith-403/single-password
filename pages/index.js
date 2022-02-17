@@ -39,9 +39,12 @@ export default function Home() {
         <h1 className="text-3xl font-bold text-gray-800 dark:text-white md:text-4xl">Use a Single Super Password across all Web</h1>
         <p className="mt-6 text-gray-500 dark:text-gray-300">Remeber a Single Password and generate different Passwords from it to use securely across the Web</p>
           
+        <a href='#how'>
         <button className="m-10 px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-            Get Started
+            Learn More
         </button>
+        </a>  
+        
         <p className="my-5 text-sm text-gray-400 ">Free and Open Source</p>
       </div>
 
@@ -76,7 +79,7 @@ export default function Home() {
     </div>
 
     
-    <section className="bg-white dark:bg-gray-900">
+    <section id='how' className="bg-white dark:bg-gray-900">
             <div className="container px-6 py-10 mx-auto">
                 <h1 className="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">How this Works</h1>
                 
