@@ -10,14 +10,12 @@ export default function Home() {
 
   const [superPassword,setSuperPassword] = useState('');
   const [site, setSite] = useState('');
-  const [generatedPassword, setGeneratedPassword] = useState('-1');
 
   async function generatePassword(){
     await fetch('/api/encrypt/'+site+superPassword)
     .then(response => response.json())
     .then(data => {
-      setGeneratedPassword(data.password);
-      copy(data.password);
+      copy(data.password+'1!qQ');
       alert("Succesfully Copied to the Clipboard");
     });
   }
