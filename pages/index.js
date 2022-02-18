@@ -6,28 +6,31 @@ import { Icon } from '@iconify/react';
 
 import copy from "copy-to-clipboard";  
 
+import { Button } from '@nextui-org/react';
+
+const Component = () => <Button>Click me</Button>;
+
 export default function Home() {
 
-  const [superPassword,setSuperPassword] = useState('');
-  const [site, setSite] = useState('');
+    const [superPassword,setSuperPassword] = useState('');
+    const [site, setSite] = useState('');
 
-  async function generatePassword(){
-    await fetch('/api/encrypt/'+site+superPassword)
-    .then(response => response.json())
-    .then(data => {
-      copy(data.password+'1!qQ');
-      alert("Succesfully Copied to the Clipboard");
-    });
-  }
-  
-  return (
+    async function generatePassword(){
+        await fetch('/api/encrypt/'+site+superPassword)
+        .then(response => response.json())
+        .then(data => {
+            copy(data.password+'1!qQ');
+            alert("Succesfully Copied to the Clipboard");
+        });
+    }
+
+    return (
     <div className={styles.container}>
-      <Head>
+    <Head>
         <title>Single Password</title>
         <meta name="description" content="Use a Single Password for evrything without any security risk" />
-      </Head>
+    </Head>
 
-      
     <nav className="bg-gray-800 shadow">
         <div className="container flex items-center justify-center p-6 mx-auto text-gray-600 capitalize dark:text-gray-300">
         <h1 className="text-2xl font-bold text-gray-300 md:text-3xl">SinglePassword™</h1>
@@ -35,50 +38,50 @@ export default function Home() {
     </nav>
 
     <div className="w-full px-6 py-16 mx-auto text-center bg-gray-900">
-      <div className="max-w-lg mx-auto">
-        <h1 className="text-3xl font-bold text-gray-800 dark:text-white md:text-4xl">Use a Single Super Password across all Web</h1>
-        <p className="mt-6 text-gray-500 dark:text-gray-300">Remeber a Single Password and generate different Passwords from it to use securely across the Web</p>
-          
-        <a href='#how'>
-        <button className="m-10 px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
-            Learn More
-        </button>
-        </a>  
+        <div className="max-w-lg mx-auto">
+            <h1 className="text-3xl font-bold text-gray-800 dark:text-white md:text-4xl">Use a Single Super Password across all Web</h1>
+            <p className="mt-6 text-gray-500 dark:text-gray-300">Remeber a Single Password and generate different Passwords from it to use securely across the Web</p>
+            
+            <a href='#how'>
+            <button className="m-10 px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                Learn More
+            </button>
+            </a>  
+            <Button>Click Me</Button>
+            <p className="my-5 text-sm text-gray-400 ">Free and Open Source</p>
+        </div>
+
         
-        <p className="my-5 text-sm text-gray-400 ">Free and Open Source</p>
-      </div>
+        <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+            
+            <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
+                <div>
+                    <label className="text-gray-700 dark:text-gray-200" >Super Password</label>
+                    <input 
+                    value={superPassword}
+                    onChange={e => {setSuperPassword(e.target.value)}}
+                    type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
+                </div>
 
-      
-      <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-          
-          <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
-              <div>
-                  <label className="text-gray-700 dark:text-gray-200" >Super Password</label>
-                  <input 
-                  value={superPassword}
-                  onChange={e => {setSuperPassword(e.target.value)}}
-                  type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
-              </div>
+                <div>
+                    <label className="text-gray-700 dark:text-gray-200" >Site</label>
+                    <input 
+                    value={site}
+                    onChange={e => {setSite(e.target.value)}}
+                    className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" /> 
+                </div>
+            </div>
 
-              <div>
-                  <label className="text-gray-700 dark:text-gray-200" >Site</label>
-                  <input 
-                  value={site}
-                  onChange={e => {setSite(e.target.value)}}
-                  className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" /> 
-              </div>
-          </div>
-
-          <div className="flex justify-center mt-6">
-              <button className="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
+            <div className="flex justify-center mt-6">
+                <button className="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
                 onClick={generatePassword}
-              >Generate and Copy</button>
-          </div>
-          
-      </section>
+                >Generate and Copy</button>
+            </div>
+            
+        </section>
     </div>
 
-    
+
     <section id='how' className="bg-white dark:bg-gray-900">
             <div className="container px-6 py-10 mx-auto">
                 <h1 className="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">How this Works</h1>
@@ -103,7 +106,7 @@ export default function Home() {
                         <h1 className="text-2xl font-semibold text-gray-700 capitalize dark:text-white">Sub Password Generation</h1>
 
                         <p className="text-gray-500 dark:text-gray-300">
-                          We generate sub passwords for each of your logins from the super password
+                            We generate sub passwords for each of your logins from the super password
                         </p>
 
                     </div>
@@ -122,42 +125,42 @@ export default function Home() {
         </section>
 
 
-    
+
         <section className="bg-white dark:bg-gray-900">
             <div className="container px-6 py-12 mx-auto">
-              <h1 className="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">Why should you trust us</h1>
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                  <div>
-                      <h1 className="mt-4 text-xl font-semibold text-gray-800 dark:text-white">You are 100% Anonymous</h1>
-      
-                      <p className="mt-2 text-gray-500 dark:text-gray-400">We do not have any form of account creation and we do not ask any personal data from you</p>
-                  </div>
-      
-                  <div>
-                      <h1 className="mt-4 text-xl font-semibold text-gray-800 dark:text-white">Secure and Strong Passwords</h1>
-                      
-                      <p className="mt-2 text-gray-500 dark:text-gray-400">We use the strongest and most robust encryption standard that is commercially available today</p>
-                  </div>
-                  
-                  <div>
-                  
-                      <h1 className="mt-4 text-xl font-semibold text-gray-800 dark:text-white">We are Open Source</h1>
-                  
-                      <p className="mt-2 text-gray-500 dark:text-gray-400">SinglePassword™ is 100% Open Source. If you have any doubts about us you can check it for yourself!</p>
-                  </div>
-              </div>
+                <h1 className="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">Why should you trust us</h1>
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <div>
+                        <h1 className="mt-4 text-xl font-semibold text-gray-800 dark:text-white">You are 100% Anonymous</h1>
+        
+                        <p className="mt-2 text-gray-500 dark:text-gray-400">We do not have any form of account creation and we do not ask any personal data from you</p>
+                    </div>
+        
+                    <div>
+                        <h1 className="mt-4 text-xl font-semibold text-gray-800 dark:text-white">Secure and Strong Passwords</h1>
+                        
+                        <p className="mt-2 text-gray-500 dark:text-gray-400">We use the strongest and most robust encryption standard that is commercially available today</p>
+                    </div>
+                    
+                    <div>
+                    
+                        <h1 className="mt-4 text-xl font-semibold text-gray-800 dark:text-white">We are Open Source</h1>
+                    
+                        <p className="mt-2 text-gray-500 dark:text-gray-400">SinglePassword™ is 100% Open Source. If you have any doubts about us you can check it for yourself!</p>
+                    </div>
+                </div>
             </div>
             <div className="container px-6 py-8 mx-auto text-center">
-              <button
-                  className="px-6 py-2 mt-6 text-sm font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 md:mx-0 md:w-auto focus:outline-none">
-                  <a href='https://github.com/lakshith-403/single-password'>
+                <button
+                    className="px-6 py-2 mt-6 text-sm font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 md:mx-0 md:w-auto focus:outline-none">
+                    <a href='https://github.com/lakshith-403/single-password'>
                     <div className='flex flex-row justify-between'>
-                      <Icon icon="bi:github" color="white" width="30" height="30" />
-                      <h1 className="mx-5 text-xl font-semibold text-gray-800 dark:text-white">Source Code on Github</h1>
+                        <Icon icon="bi:github" color="white" width="30" height="30" />
+                        <h1 className="mx-5 text-xl font-semibold text-gray-800 dark:text-white">Source Code on Github</h1>
                     </div>
-                  </a>
-                  
-              </button>
+                    </a>
+                    
+                </button>
         </div>
         </section>
 
@@ -199,7 +202,7 @@ export default function Home() {
         </div>
     </footer>
 
-      
+        
     </div>
-  )
+    )
 }
