@@ -6,21 +6,22 @@ import { Icon } from '@iconify/react';
 
 import copy from "copy-to-clipboard";  
 
-import { Button } from '@nextui-org/react';
-
-const Component = () => <Button>Click me</Button>;
+import { Checkbox, Modal } from '@nextui-org/react';
 
 export default function Home() {
 
     const [superPassword,setSuperPassword] = useState('');
     const [site, setSite] = useState('');
+    const [passLength, setPassLength] = useState(8);
+    const [showResult, setShowResult] = useState(false);
+    const [showHelp, setShowHelp] = useState(false);
 
     async function generatePassword(){
         await fetch('/api/encrypt/'+site+superPassword)
         .then(response => response.json())
         .then(data => {
             copy(data.password+'1!qQ');
-            alert("Succesfully Copied to the Clipboard");
+            setShowResult(true);
         });
     }
 
@@ -30,6 +31,62 @@ export default function Home() {
         <title>Single Password</title>
         <meta name="description" content="Use a Single Password for evrything without any security risk" />
     </Head>
+
+    <Modal
+        closeButton
+        blur
+        open={showResult}
+        onClose={() => setShowResult(false)}
+    >
+        <Modal.Header>
+            
+        </Modal.Header>
+        <Modal.Body>
+            <p className="mt-6 text-gray-500 dark:text-gray-300">
+                Password Has been Succesfully Copied to the clipboard
+            </p>
+        </Modal.Body>
+        <Modal.Footer>
+            <button 
+            onClick={()=>{setShowResult(false)}}
+            className="px-4 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+                    Close
+            </button>
+        </Modal.Footer>
+    </Modal>
+
+    <Modal
+        closeButton
+        open={showHelp}
+        onClose={()=>setShowHelp(false)}
+    >
+        <Modal.Header>
+            <p>Help</p>
+        </Modal.Header>
+        <Modal.Body>
+            <div className='flex flex-col justify-start'>
+
+            </div>
+            <p className=" text-gray-300">
+                <span className='font-bold'>Super Password:</span> This is used to generate your passwords. Never forget this.
+            </p>
+            <p className=" text-gray-300">
+                <span className='font-bold'>Site:</span> The site which you are trying to log in.
+            </p>
+            <p className="text-gray-300">
+                <span className='font-bold'>Checkboxes:</span> Include or exclude shown chracter sets in the generated password
+            </p>
+            <p className="text-gray-300">
+                <span className='font-bold'>Memorable:</span> Make the password a little bit readable to humans. (will not be random set og characters)
+            </p>
+            <p className="text-gray-300">
+                <span className='font-bold'>Custom Length:</span> Change the length of the generated password
+            </p>
+            <p className="text-gray-500 dark:text-gray-300">
+                <span className='font-bold'>Increment:</span> To generate a different password for the same site, change increment.
+            </p>
+        </Modal.Body>
+    </Modal>
 
     <nav className="bg-gray-800 shadow">
         <div className="container flex items-center justify-center p-6 mx-auto text-gray-600 capitalize dark:text-gray-300">
@@ -47,24 +104,23 @@ export default function Home() {
                 Learn More
             </button>
             </a>  
-            <Button>Click Me</Button>
             <p className="my-5 text-sm text-gray-400 ">Free and Open Source</p>
         </div>
 
         
-        <section className="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
+        <section className="max-w-4xl p-6 mx-auto rounded-md shadow-md bg-gray-800">
             
             <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
-                <div>
-                    <label className="text-gray-700 dark:text-gray-200" >Super Password</label>
+                <div className='flex flex-col content-left'>
+                    <label className="text-left text-gray-700 dark:text-gray-200 font-semibold" >Super Password</label>
                     <input 
                     value={superPassword}
                     onChange={e => {setSuperPassword(e.target.value)}}
                     type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" />
                 </div>
 
-                <div>
-                    <label className="text-gray-700 dark:text-gray-200" >Site</label>
+                <div className='flex flex-col content-left'>
+                    <label className="text-left text-gray-700 dark:text-gray-200 font-semibold" >Site</label>
                     <input 
                     value={site}
                     onChange={e => {setSite(e.target.value)}}
@@ -72,10 +128,89 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="flex justify-center mt-6">
-                <button className="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
+            <div className="grid grid-cols-2 gap-6 mt-4 sm:grid-cols-4 justify-evenly ">
+                <div className='flex justify-left'>
+                    <Checkbox checked={true}>
+                        <label className="text-gray-700 dark:text-gray-200 font-semibold text-base" >a-z</label>
+                    </Checkbox>
+                </div>
+                
+                <div className='flex justify-left'>
+                <Checkbox checked={true}>
+                    <label className="text-gray-700 dark:text-gray-200 font-semibold text-base" >A-Z</label>
+                </Checkbox>
+                </div>
+
+                <div className='flex justify-left'>
+                <Checkbox checked={true}>
+                    <label className="text-gray-700 dark:text-gray-200 font-semibold text-base" >0-9</label>
+                </Checkbox>
+                </div>
+
+                <div className='flex justify-left'>
+                <Checkbox checked={true}>
+                    <label className="text-gray-700 dark:text-gray-200 font-semibold text-base" >!@#</label>
+                </Checkbox>
+                </div>
+
+                <div className='flex justify-left'>
+                <Checkbox checked={true}>
+                    <label className="text-gray-700 dark:text-gray-200 font-semibold text-base" >Memorable</label>
+                </Checkbox>
+                </div>
+
+                <div className='flex justify-left'>
+                    <Checkbox checked={true}>
+                        <label className="text-gray-700 dark:text-gray-200 font-semibold text-base" >Custom Length</label>
+                    </Checkbox>
+                </div>
+
+            </div>
+
+            <div className='flex justify-left flex-col content-left my-10'>
+                <label className="text-left text-gray-700 dark:text-gray-200 font-semibold my-auto px-2" >Length</label>
+                <input 
+                    min={6}
+                    max={20}
+                    type="range"
+                    className='px-2 py-2'/>
+                <ul className="flex justify-between w-full px-2">
+                    <li className="flex justify-center relative"><span className="absolute">6</span></li>
+                    <li className="flex justify-center relative"><span className="absolute">8</span></li>
+                    <li className="flex justify-center relative"><span className="absolute">10</span></li>
+                    <li className="flex justify-center relative"><span className="absolute">12</span></li>
+                    <li className="flex justify-center relative"><span className="absolute">14</span></li>
+                    <li className="flex justify-center relative"><span className="absolute">16</span></li>
+                    <li className="flex justify-center relative"><span className="absolute">18</span></li>
+                    <li className="flex justify-center relative"><span className="absolute">20</span></li>
+                </ul>
+            </div>   
+
+            <div className='flex justify-left flex-col content-left my-10'>
+                <label className="text-left text-gray-700 dark:text-gray-200 font-semibold my-auto px-2" >Increment</label>
+                <input 
+                    min={1}
+                    max={5}
+                    type="range"
+                    className='px-2 py-2'/>
+                <ul className="flex justify-between w-full px-2">
+                    <li className="flex justify-center relative"><span className="absolute">1</span></li>
+                    <li className="flex justify-center relative"><span className="absolute">2</span></li>
+                    <li className="flex justify-center relative"><span className="absolute">3</span></li>
+                    <li className="flex justify-center relative"><span className="absolute">4</span></li>
+                    <li className="flex justify-center relative"><span className="absolute">5</span></li>
+                </ul>
+            </div>          
+
+            <div className="flex justify-center mt-6 content-center content-center">
+                <button className="font-semibold px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600"
                 onClick={generatePassword}
                 >Generate and Copy</button>
+                <button 
+                onClick={()=> {setShowHelp(true)}}
+                className="flex items-center mx-2 px-2 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-gray-800 rounded-md hover:bg-gray-700 focus:outline-none focus:ring focus:ring-gray-600 focus:ring-opacity-80">
+                    <Icon icon="bxs:help-circle" color="white" width={25} height={25} />
+                </button>
             </div>
             
         </section>
