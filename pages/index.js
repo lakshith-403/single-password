@@ -28,13 +28,14 @@ export default function Home() {
 
     async function generatePassword(){
         console.log('hello');
-        await fetch('/api/encrypt/getPassword', {
+        const res = await fetch('/api/encrypt/getPassword', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ site: site, az: az, AZ: AZ, num: num, symbol: symbol, memorable: memorable, customLength: customLength, length: length, increment: increment}),
-        })
+            body: JSON.stringify({ superPassword: superPassword, site: site, az: az, AZ: AZ, num: num, symbol: symbol, memorable: memorable, customLength: customLength, length: length, increment: increment}),
+        });
+        res.json().then(data => console.log(data.password));
     }
 
     return (
@@ -88,12 +89,12 @@ export default function Home() {
             <p className="text-gray-300">
                 <span className='font-bold'>Checkboxes:</span> Include or exclude shown chracter sets in the generated password
             </p>
-            <p className="text-gray-300">
+            {/* <p className="text-gray-300">
                 <span className='font-bold'>Memorable:</span> Make the password a little bit readable to humans. (will not be random set og characters)
             </p>
             <p className="text-gray-300">
                 <span className='font-bold'>Custom Length:</span> Change the length of the generated password
-            </p>
+            </p> */}
             <p className="text-gray-500 dark:text-gray-300">
                 <span className='font-bold'>Increment:</span> To generate a different password for the same site, change increment.
             </p>
@@ -165,7 +166,7 @@ export default function Home() {
                 </Checkbox>
                 </div>
 
-                <div className='flex justify-left'>
+                {/* <div className='flex justify-left'>
                 <Checkbox checked={true} onChange={(e)=>setMemorable(memorable^1)}>
                     <label className="text-gray-700 dark:text-gray-200 font-semibold text-base" >Memorable</label>
                 </Checkbox>
@@ -175,7 +176,7 @@ export default function Home() {
                     <Checkbox checked={true} onChange={(e)=>setCustomLength(customLength^1)}>
                         <label className="text-gray-700 dark:text-gray-200 font-semibold text-base" >Custom Length</label>
                     </Checkbox>
-                </div>
+                </div> */}
 
             </div>
 
