@@ -27,12 +27,14 @@ export default function Home() {
     const [showHelp, setShowHelp] = useState(false);
 
     async function generatePassword(){
-        await fetch('/api/encrypt/'+site+superPassword)
-        .then(response => response.json())
-        .then(data => {
-            copy(data.password+'1!qQ');
-            setShowResult(true);
-        });
+        console.log('hello');
+        await fetch('/api/encrypt/getPassword', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ site: site, az: az, AZ: AZ, num: num, symbol: symbol, memorable: memorable, customLength: customLength, length: length, increment: increment}),
+        })
     }
 
     return (
@@ -183,8 +185,8 @@ export default function Home() {
                     min={6}
                     max={20}
                     type="range"
-                    value={customLength}
-                    onChange={e => {setCustomLength(e.target.value)}}
+                    value={length}
+                    onChange={e => {setLength(e.target.value)}}
                     className='px-2 py-2'/>
                 <ul className="flex justify-between w-full px-2">
                     <li className="flex justify-center relative"><span className="absolute">6</span></li>
