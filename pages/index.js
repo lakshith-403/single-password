@@ -12,7 +12,17 @@ export default function Home() {
 
     const [superPassword,setSuperPassword] = useState('');
     const [site, setSite] = useState('');
-    const [passLength, setPassLength] = useState(8);
+
+    const [az,setAz] = useState(true);
+    const [AZ,setAZ] = useState(true);
+    const [num,setNum] = useState(true);
+    const [symbol,setSymbol] = useState(true);
+    const [memorable,setMemorable] = useState(true);
+    const [customLength,setCustomLength] = useState(true);
+
+    const [length,setLength] = useState(8);
+    const [increment,setIncrement] = useState(1);
+
     const [showResult, setShowResult] = useState(false);
     const [showHelp, setShowHelp] = useState(false);
 
@@ -130,37 +140,37 @@ export default function Home() {
 
             <div className="grid grid-cols-2 gap-6 mt-4 sm:grid-cols-4 justify-evenly ">
                 <div className='flex justify-left'>
-                    <Checkbox checked={true}>
+                    <Checkbox checked={true} onChange={(e)=>{setAz(az^1);}}>
                         <label className="text-gray-700 dark:text-gray-200 font-semibold text-base" >a-z</label>
                     </Checkbox>
                 </div>
                 
                 <div className='flex justify-left'>
-                <Checkbox checked={true}>
+                <Checkbox checked={true} onChange={(e)=>setAZ(AZ^1)}>
                     <label className="text-gray-700 dark:text-gray-200 font-semibold text-base" >A-Z</label>
                 </Checkbox>
                 </div>
 
                 <div className='flex justify-left'>
-                <Checkbox checked={true}>
+                <Checkbox checked={true} onChange={(e)=>setNum(num^1)}>
                     <label className="text-gray-700 dark:text-gray-200 font-semibold text-base" >0-9</label>
                 </Checkbox>
                 </div>
 
                 <div className='flex justify-left'>
-                <Checkbox checked={true}>
+                <Checkbox checked={true} onChange={(e)=>setSymbol(symbol^1)}>
                     <label className="text-gray-700 dark:text-gray-200 font-semibold text-base" >!@#</label>
                 </Checkbox>
                 </div>
 
                 <div className='flex justify-left'>
-                <Checkbox checked={true}>
+                <Checkbox checked={true} onChange={(e)=>setMemorable(memorable^1)}>
                     <label className="text-gray-700 dark:text-gray-200 font-semibold text-base" >Memorable</label>
                 </Checkbox>
                 </div>
 
                 <div className='flex justify-left'>
-                    <Checkbox checked={true}>
+                    <Checkbox checked={true} onChange={(e)=>setCustomLength(customLength^1)}>
                         <label className="text-gray-700 dark:text-gray-200 font-semibold text-base" >Custom Length</label>
                     </Checkbox>
                 </div>
@@ -173,6 +183,8 @@ export default function Home() {
                     min={6}
                     max={20}
                     type="range"
+                    value={customLength}
+                    onChange={e => {setCustomLength(e.target.value)}}
                     className='px-2 py-2'/>
                 <ul className="flex justify-between w-full px-2">
                     <li className="flex justify-center relative"><span className="absolute">6</span></li>
@@ -191,6 +203,8 @@ export default function Home() {
                 <input 
                     min={1}
                     max={5}
+                    value={increment}
+                    onChange={e => {setIncrement(e.target.value)}}
                     type="range"
                     className='px-2 py-2'/>
                 <ul className="flex justify-between w-full px-2">

@@ -2,7 +2,7 @@
   "name": "single-password",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start -p $PORT",
     "heroku-postbuild": "npm run build",
