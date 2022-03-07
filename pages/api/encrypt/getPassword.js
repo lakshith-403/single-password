@@ -35,10 +35,8 @@ export default function handler(req, res) {
     for(var i=0; i < hash.length; i++){
         var rng = seedRandom(hash[i]);
         if(ascii(hash[i]) >= 48 && ascii(hash[i]) <= 57){
-            console.log(rng());
             if(rng() < 0.5){
                 hash = setCharAt(hash, i, Symbols[Math.floor(rng() * Symbols.length)]);
-                console.log('in');
             }
         }
     }

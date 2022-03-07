@@ -27,7 +27,6 @@ export default function Home() {
     const [showHelp, setShowHelp] = useState(false);
 
     async function generatePassword(){
-        console.log('hello');
         const res = await fetch('/api/encrypt/getPassword', {
             method: 'POST',
             headers: {
@@ -35,7 +34,10 @@ export default function Home() {
             },
             body: JSON.stringify({ superPassword: superPassword, site: site, az: az, AZ: AZ, num: num, symbol: symbol, memorable: memorable, customLength: customLength, length: length, increment: increment}),
         });
-        res.json().then(data => console.log(data.password));
+        res.json().then(data => {
+            copy(data.password);
+            setShowResult(true);
+        });
     }
 
     return (
