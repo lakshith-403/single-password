@@ -1,3 +1,7 @@
+![screenshot](https://i.imgur.com/AiCpXog.png)
+
+
+
 # SinglePassword
 
 Imagine a Password Vault where you don't have to save your passwords.
