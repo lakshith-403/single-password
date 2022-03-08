@@ -45,6 +45,8 @@ export default function Home() {
     <Head>
         <title>Single Password</title>
         <meta name="description" content="Use a Single Password for evrything without any security risk" />
+        <link rel="icon" type="image/png" href="/favicon.png"/>
+        <meta name="mobile-web-app-capable" content="yes" />
     </Head>
 
     <Modal
@@ -285,22 +287,22 @@ export default function Home() {
                 <h1 className="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">Why should you trust us</h1>
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                     <div>
-                        <h1 className="mt-4 text-xl font-semibold text-gray-800 dark:text-white">You are 100% Anonymous</h1>
+                        <h1 className="mt-4 text-xl font-semibold text-gray-800 dark:text-white">You are Anonymous</h1>
         
-                        <p className="mt-2 text-gray-500 dark:text-gray-400">We do not have any form of account creation and we do not ask any personal data from you</p>
+                        <p className="mt-2 text-gray-500 dark:text-gray-400">There is no any form of account creation and any of your personal data is not collected</p>
                     </div>
         
                     <div>
                         <h1 className="mt-4 text-xl font-semibold text-gray-800 dark:text-white">Secure and Strong Passwords</h1>
                         
-                        <p className="mt-2 text-gray-500 dark:text-gray-400">We use the strongest and most robust encryption standard that is commercially available today</p>
+                        <p className="mt-2 text-gray-500 dark:text-gray-400">SHA-256 Cryptographic hash functions is used to generate passwords.</p>
                     </div>
                     
                     <div>
                     
-                        <h1 className="mt-4 text-xl font-semibold text-gray-800 dark:text-white">We are Open Source</h1>
+                        <h1 className="mt-4 text-xl font-semibold text-gray-800 dark:text-white">Open Source</h1>
                     
-                        <p className="mt-2 text-gray-500 dark:text-gray-400">SinglePassword™ is 100% Open Source. If you have any doubts about us you can check it for yourself!</p>
+                        <p className="mt-2 text-gray-500 dark:text-gray-400">SinglePassword™ is 100% Open Source. Complete project is publicly available in Github.</p>
                     </div>
                 </div>
             </div>
@@ -324,32 +326,21 @@ export default function Home() {
 
     <footer className="flex justify-center px-4 text-gray-800 bg-white dark:text-white dark:bg-gray-800">
         <div className="container py-6">
-            <h1 className="text-lg font-bold text-center lg:text-2xl">
-                Join with us to recieve updates <br/> about latest products
-            </h1>
-
-            <div className="flex justify-center mt-6">
-                <div className="bg-white border rounded-md focus-within:ring dark:bg-gray-800 dark:border-gray-600 focus-within:border-blue-400 focus-within:ring-blue-300 focus-within:ring-opacity-40 dark:focus-within:border-blue-300">
-                    <div className="flex flex-wrap justify-between md:flex-row">
-                        <input type="email" className="p-2 m-1 text-sm text-gray-700 bg-transparent appearance-none focus:outline-none focus:placeholder-transparent" placeholder="Enter your email" aria-label="Enter your email" />
-                        <button className="w-full px-3 py-2 m-1 text-sm font-medium tracking-wider text-white uppercase transition-colors duration-200 transform bg-gray-800 rounded-md dark:hover:bg-gray-600 dark:bg-gray-700 lg:w-auto hover:bg-gray-700">subscribe</button>
-                    </div>
-                </div>
-            </div>
 
             <hr className="h-px mt-6 border-gray-300 border-none dark:bg-gray-700"/>
 
             <div className="flex flex-col items-center justify-between mt-6 md:flex-row">
                 <div>
-                    <a href="https://www.devcreara.com" className="text-xl font-bold text-gray-800 dark:text-white hover:text-gray-700 dark:hover:text-gray-300">DevCreara</a>
+                    <a href="https://www.devcreara.com" className="text-xl font-bold text-gray-800 dark:text-white hover:text-gray-700 dark:hover:text-gray-300">Lakshith</a>
                 </div>
 
                 <div className="flex mt-4 md:m-0">
-                    <div className="-mx-4">
-                        <a href="https://www.devcreara.com" className="px-4 text-sm font-medium text-gray-800 dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 hover:underline">About</a>
-                        <a href="https://www.devcreara.com" className="px-4 text-sm font-medium text-gray-800 dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 hover:underline">Blog</a>
-                        <a href="https://www.devcreara.com" className="px-4 text-sm font-medium text-gray-800 dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 hover:underline">News</a>
-                        <a href="https://www.devcreara.com" className="px-4 text-sm font-medium text-gray-800 dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 hover:underline">Contact</a>
+                    <div
+                    className="-mx-4">
+                        <a href="https://www.linkedin.com/in/lakshith/" className="px-4 text-sm font-medium text-gray-800 dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 hover:underline">Linkedin</a>
+                        <a href="https://www.lakshith.devcreara.com" className="px-4 text-sm font-medium text-gray-800 dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 hover:underline">Portfolio</a>
+                        <a href="https://www.blog.devcreara.com" className="px-4 text-sm font-medium text-gray-800 dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 hover:underline">Blog</a>
+                        <a href="https://www.contact.devcreara.com" className="px-4 text-sm font-medium text-gray-800 dark:text-gray-200 hover:text-gray-700 dark:hover:text-gray-400 hover:underline">Contact</a>
                     </div>
                 </div>
             </div>
