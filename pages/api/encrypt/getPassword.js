@@ -16,7 +16,7 @@ export default function handler(req, res) {
         return;
     }
 
-    var hash = CryptoJS.SHA256(req.body.superPassword + req.body.increment).toString();
+    var hash = CryptoJS.SHA256(req.body.superPassword + req.body.increment + req.body.site).toString();
 
     var seedRandom = require('seedrandom');
 
